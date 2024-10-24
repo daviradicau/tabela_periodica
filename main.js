@@ -2,6 +2,8 @@ var elementBox = document.querySelector("#element-box")
 var guess = document.querySelector("#guess-input")
 var streak = document.querySelector("#streak")
 var record = document.querySelector("#record")
+let element
+let previousElement
 
 var table = [
     ["Hidrogênio","H"], ["Hélio","He"], ["Lítio","Li"],
@@ -51,16 +53,13 @@ window.onload = () => {
         record.innerHTML = streakRecord }
 }
 
-element = table[Math.floor(Math.random() * 118)]
-
-elementBox.innerHTML = element[1]
+randomizeElement()
 
 function onGuess(e) {
     e.preventDefault()
     if(guess.value.toLocaleLowerCase() == element[0].toLocaleLowerCase()) {
         Number(streak.innerHTML++)
-        element = table[Math.floor(Math.random() * 118)]
-        elementBox.innerHTML = element[1]
+        randomizeElement()
         guess.value = ""
         document.getElementById("guess-button").style.backgroundColor = "#0A0"
         streak.style.fontSize = "4rem"
@@ -92,12 +91,23 @@ function onGuess(e) {
             guess.style.color = ""
             guess.removeAttribute("readonly")
             guess.value = ""
-            element = table[Math.floor(Math.random() * 118)]
-            elementBox.innerHTML = element[1]
+            randomizeElement()
             streak.innerHTML = 0
             streak.classList.contains("wiggle") ? streak.classList.remove("wiggle") : record.classList.remove("wiggle")
             document.querySelector("h1").style.marginTop = "-3rem"
             document.querySelector("h1").style.fontSize = "2rem"
         }, 2000)
     }
+}
+
+function randomizeElement() {
+    element = table[Math.floor(Math.random() * 118)]
+    if (element == previousElement) {
+        while (element == previousElement) {
+            element = table[Math.floor(Math.random() * 118)]
+        }
+    } else {
+        previousElement = element
+    }
+    elementBox.innerHTML = element[1]
 }
