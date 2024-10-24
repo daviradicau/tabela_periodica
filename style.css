@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    background-color: #464b5a;
+    font-family: 'Inter';
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 64px;
+    place-self: center;
+    background-color: #FFF;
+    border-radius: 8px;
+}
+
+#element-box {
+    width: 25rem;
+    height: 25rem;
+    background-color: #fff;
+    display: grid;
+    place-content: center;
+    font-family: 'Prompt';
+    font-size: 10rem;
+    border: 3px solid black;
+    border-radius: 12px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+#guess-input {
+    width: 20rem;
+    height: 5rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    font-family: 'Inter';
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 12px 0 0 12px;
+    border: 2px solid black;
+    outline: none;
+    transition: .2s;
+}
+
+#guess-button {
+    margin: 0;
+    width: 5rem;
+    height: 5rem;
+    color: #fff;
+    border: 2px solid black;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    background-color: #0AC;
+    transition: .2s;
+}
+
+#guess-button:hover {
+    cursor: pointer;
+    background-color: #0BD;
+}
+
+form ul {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    list-style: none;
+    gap: 1rem;
+    z-index: 1;
+}
+
+ul li {
+    width: 7.5rem;
+    height: 5rem;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    border: 2px solid white;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: -3rem;
+    text-align: center;
+    color: #e38800;
+    transition: .5s;
+}
+
+#streak {
+    border-color: #0A0;
+    color: #0A0;
+}
+
+#record {
+    border-color: #e38800;
+    color: #e38800;
+}
+
+.wiggle {
+    animation: wiggle .75s;
+}
+
+@keyframes wiggle {
+    0% {
+        rotate: 0deg;
+        scale: 1.1;
+    } 25% {
+        rotate: 15deg;
+    } 50% {
+        rotate: -15deg;
+    } 75% {
+        rotate: 15deg;
+        scale: 1.1;
+    } 100% {
+        rotate: 0deg;
+        scale: 1;
+    }
+}
